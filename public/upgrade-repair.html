@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BB99 Siege War - Upgrade & Repair</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BB99 Siege War - Upgrade & Repair</h1>
+            <div class="header-controls">
+                <div id="authSection" class="auth-section">
+                    <!-- Auth content will be populated by JavaScript -->
+                </div>
+                <button onclick="window.location.href='/'" class="btn-primary">Back to Posts</button>
+                <button id="adminBtn" onclick="window.open('/admin', '_blank')" class="admin-btn" style="display: none;">Admin Panel</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="upgradeRepairContent" class="upgrade-repair-content">
+                <div class="upgrade-repair-tabs">
+                    <button class="tab-btn active" data-tab="repair">Repair</button>
+                    <button class="tab-btn" data-tab="upgrade">Upgrade</button>
+                </div>
+
+                <div id="repairTab" class="tab-content active">
+                    <h3>Assets Currently Under Repair</h3>
+                    <div id="repairAssets" class="assets-grid">
+                        <!-- Repair assets will be populated by JavaScript -->
+                    </div>
+                    <div id="noRepairAssets" class="no-assets" style="display: none;">
+                        <p>No assets are currently set for repair.</p>
+                    </div>
+                </div>
+
+                <div id="upgradeTab" class="tab-content">
+                    <h3>Assets Currently Being Upgraded</h3>
+                    <div id="upgradeAssets" class="assets-grid">
+                        <!-- Upgrade assets will be populated by JavaScript -->
+                    </div>
+                    <div id="noUpgradeAssets" class="no-assets" style="display: none;">
+                        <p>No assets are currently set for upgrade.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="accessDenied" class="access-denied" style="display: none;">
+                <h2>Please Log In</h2>
+                <p>You need to be logged in to view this page.</p>
+                <button onclick="window.location.href='/'" class="btn-primary">Go to Home</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="upgrade-repair.js"></script>
+</body>
+</html>

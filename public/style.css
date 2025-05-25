@@ -1,0 +1,1867 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.auth-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.user-level {
+    background: #007bff;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.user-level.admin {
+    background: #dc3545;
+}
+
+.user-level.owner {
+    background: #6f42c1;
+}
+
+.admin-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.admin-btn:hover {
+    background: #c82333;
+}
+
+.logout-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.logout-btn:hover {
+    background: #5a6268;
+}
+
+/* Discord Integration Styles */
+.discord-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.discord-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.discord-linked {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #5865F2;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.discord-unlinked {
+    display: flex;
+    align-items: center;
+}
+
+.discord-icon {
+    font-size: 16px;
+}
+
+.discord-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.discord-link-btn {
+    background: #5865F2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.3s;
+}
+
+.discord-link-btn:hover {
+    background: #4752C4;
+}
+
+.discord-unlink-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+}
+
+.discord-unlink-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-discord {
+    background: #5865F2;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-discord:hover {
+    background: #4752C4;
+}
+
+.btn-discord:before {
+    content: "🤖";
+}
+
+/* Discord Modal Styles */
+.discord-info {
+    text-align: left;
+}
+
+.discord-info h3 {
+    color: #5865F2;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.discord-info h3:before {
+    content: "🤖";
+}
+
+.discord-features {
+    margin: 20px 0;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #5865F2;
+}
+
+.discord-features h4 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.discord-features ul {
+    margin-left: 20px;
+    line-height: 1.6;
+}
+
+.discord-features li {
+    margin-bottom: 5px;
+}
+
+.discord-features code {
+    background: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #5865F2;
+}
+
+.discord-instructions {
+    margin: 20px 0;
+    background: #e7f3ff;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #0066cc;
+}
+
+.discord-instructions h4 {
+    color: #0066cc;
+    margin-bottom: 10px;
+}
+
+.discord-instructions ol {
+    margin-left: 20px;
+    line-height: 1.6;
+}
+
+.discord-instructions li {
+    margin-bottom: 5px;
+}
+
+/* Discord Info Banner */
+.info-banner {
+    background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(88, 101, 242, 0.3);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.banner-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.banner-text {
+    flex: 1;
+}
+
+.banner-text strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.banner-text p {
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.banner-text code {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+.close-banner {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+    flex-shrink: 0;
+}
+
+.close-banner:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Discord Admin Tab Styles */
+.discord-admin-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.discord-stats {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #5865F2;
+}
+
+.discord-stats h4 {
+    color: #5865F2;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.discord-stats h4:before {
+    content: "📊";
+}
+
+.discord-stat {
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discord-stat:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.discord-stat strong {
+    color: #333;
+}
+
+.discord-setup {
+    background: #e7f3ff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #0066cc;
+}
+
+.discord-setup h4 {
+    color: #0066cc;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.discord-setup h4:before {
+    content: "⚙️";
+}
+
+.discord-setup ol {
+    margin-left: 20px;
+    line-height: 1.6;
+}
+
+.discord-setup li {
+    margin-bottom: 8px;
+}
+
+.discord-setup code {
+    background: rgba(0, 102, 204, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #0066cc;
+}
+
+.discord-commands {
+    background: #d4edda;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+}
+
+.discord-commands h4 {
+    color: #28a745;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.discord-commands h4:before {
+    content: "🤖";
+}
+
+.discord-commands ul {
+    margin-left: 20px;
+    line-height: 1.6;
+}
+
+.discord-commands li {
+    margin-bottom: 8px;
+}
+
+.discord-commands code {
+    background: rgba(40, 167, 69, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Features Highlight in Auth Prompt */
+.features-highlight {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.features-highlight h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.features-highlight p {
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* Auth Prompt Styles */
+.auth-prompt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.auth-prompt-content {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    max-width: 400px;
+}
+
+.auth-prompt-content h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.auth-prompt-content p {
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.posts-section {
+    margin-top: 20px;
+}
+
+/* Auth Form Styles */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.admin-invite-section {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+.admin-invite-section label {
+    font-size: 14px;
+    color: #666;
+}
+
+.admin-invite-section input {
+    font-size: 14px;
+}
+
+.switch-auth {
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+}
+
+.switch-auth button {
+    background: none;
+    border: none;
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.switch-auth button:hover {
+    color: #0056b3;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.post {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    position: relative;
+}
+
+.post-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.post-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.post-status {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.post-status.empty {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.post-status.held {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.post-status.applied {
+    background: #cce5ff;
+    color: #004085;
+    border: 1px solid #99d6ff;
+}
+
+.current-holder {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.pending-applications {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.post-conditions {
+    margin: 15px 0;
+}
+
+.post-conditions h4 {
+    margin-bottom: 10px;
+    color: #495057;
+}
+
+.condition {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.condition input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.condition-display {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+    padding: 4px 0;
+}
+
+.condition-checkmark {
+    color: #28a745;
+    font-weight: bold;
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+}
+
+.condition-text {
+    flex: 1;
+}
+
+.post-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.post-actions button {
+    flex: 1;
+    min-width: 80px;
+    font-size: 12px;
+    padding: 6px 12px;
+}
+
+.action-hold {
+    background: #28a745;
+}
+
+.action-hold:hover {
+    background: #218838;
+}
+
+.action-apply {
+    background: #17a2b8;
+}
+
+.action-apply:hover {
+    background: #138496;
+}
+
+.action-leave {
+    background: #dc3545;
+}
+
+.action-leave:hover {
+    background: #c82333;
+}
+
+.action-withdraw {
+    background: #6c757d;
+}
+
+.action-withdraw:hover {
+    background: #5a6268;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* Admin Panel Styles */
+.admin-panel {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.admin-panel.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-content {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-header button {
+    background: #dc3545;
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-btn {
+    background: #f8f9fa;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    flex: 1;
+}
+
+.tab-btn.active {
+    background: white;
+    border-bottom-color: #007bff;
+    color: #007bff;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.application-item {
+    background: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #007bff;
+}
+
+.application-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.application-info {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.application-conditions {
+    margin-bottom: 10px;
+}
+
+.application-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.application-actions button {
+    padding: 5px 15px;
+    font-size: 12px;
+}
+
+.btn-accept {
+    background: #28a745;
+}
+
+.btn-accept:hover {
+    background: #218838;
+}
+
+.btn-reject {
+    background: #dc3545;
+}
+
+.btn-reject:hover {
+    background: #c82333;
+}
+
+.box-selector {
+    margin-bottom: 20px;
+}
+
+.box-selector select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.post-selector {
+    margin-bottom: 20px;
+}
+
+.post-selector select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.condition-input {
+    margin-bottom: 15px;
+}
+
+.condition-input label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.condition-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.save-conditions {
+    background: #28a745;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.save-conditions:hover {
+    background: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .header-controls {
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .discord-section {
+        order: -1;
+    }
+    
+    .auth-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+    
+    .features-highlight {
+        margin-top: 20px;
+        padding: 15px;
+    }
+    
+    .banner-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .banner-text {
+        text-align: center;
+    }
+    
+    .discord-admin-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    .admin-content {
+        margin: 10px;
+        height: calc(100vh - 20px);
+    }
+    
+    .admin-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        flex: 1 1 50%;
+        min-width: 120px;
+    }
+}
+
+/* Loading and Error States */
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 10px 0;
+    border: 1px solid #f5c6cb;
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 10px 0;
+    border: 1px solid #c3e6cb;
+}
+
+/* Enhanced Admin Styles */
+.control-group {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.control-group select {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 150px;
+}
+
+.btn-assign {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-assign:hover {
+    background: #218838;
+}
+
+.btn-remove {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-remove:hover {
+    background: #c82333;
+}
+
+.user-item {
+    background: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #007bff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-info-admin strong {
+    font-size: 16px;
+}
+
+.user-meta {
+    font-size: 12px;
+    color: #666;
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.level-btn {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 3px;
+    font-size: 11px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.level-btn.user {
+    background: #6c757d;
+    color: white;
+}
+
+.level-btn.admin {
+    background: #dc3545;
+    color: white;
+}
+
+.level-btn.owner {
+    background: #6f42c1;
+    color: white;
+}
+
+.level-btn:hover {
+    opacity: 0.8;
+}
+
+.level-btn.current {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Admin Page Styles */
+.admin-content-page {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.access-denied {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.access-denied h2 {
+    color: #dc3545;
+    margin-bottom: 15px;
+}
+
+.access-denied p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Import Conditions Styles */
+.import-conditions-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.format-help {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+}
+
+.format-help h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.format-example {
+    background: #e9ecef;
+    padding: 15px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    border: 1px solid #dee2e6;
+}
+
+.format-note {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.import-input-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.import-input-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#conditionsImportText {
+    width: 100%;
+    min-height: 300px;
+    padding: 15px;
+    border: 2px solid #dee2e6;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+#conditionsImportText:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.import-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-preview {
+    background: #17a2b8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-preview:hover {
+    background: #138496;
+}
+
+.btn-import {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-import:hover:not(:disabled) {
+    background: #218838;
+}
+
+.btn-import:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+.btn-clear {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-clear:hover {
+    background: #5a6268;
+}
+
+.import-preview {
+    background: #d1ecf1;
+    border: 1px solid #bee5eb;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.import-preview h4 {
+    color: #0c5460;
+    margin-bottom: 15px;
+}
+
+.preview-post {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #17a2b8;
+}
+
+.preview-post h5 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.preview-conditions {
+    display: grid;
+    gap: 5px;
+}
+
+.preview-condition {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.preview-condition .condition-label {
+    font-weight: bold;
+    margin-right: 10px;
+    min-width: 80px;
+}
+
+.import-errors {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.import-errors h4 {
+    color: #721c24;
+    margin-bottom: 15px;
+}
+
+.error-item {
+    background: white;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border-left: 4px solid #dc3545;
+    font-size: 14px;
+    color: #721c24;
+}
+
+/* Success Modal Styles */
+.success-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.success-modal.show {
+    display: flex;
+}
+
+.success-modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.success-modal h3 {
+    color: #28a745;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.success-modal h3:before {
+    content: '✓';
+    background: #28a745;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.changes-summary {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.change-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #c3e6cb;
+}
+
+.change-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.change-item h5 {
+    color: #155724;
+    margin-bottom: 8px;
+}
+
+.change-item .condition-change {
+    font-size: 14px;
+    color: #155724;
+    margin-bottom: 3px;
+}
+
+/* Additional classes for import functionality */
+.preview-item {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #17a2b8;
+}
+
+.preview-item strong {
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.preview-item ul {
+    margin: 10px 0 0 20px;
+    padding: 0;
+}
+
+.preview-item li {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.success-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #c3e6cb;
+}
+
+.success-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.success-item strong {
+    color: #155724;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.success-item ul {
+    margin: 10px 0 0 20px;
+    padding: 0;
+}
+
+.success-item li {
+    font-size: 14px;
+    color: #155724;
+    margin-bottom: 3px;
+}
+
+/* Responsive Design for Import */
+@media (max-width: 768px) {
+    .import-conditions-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .import-actions {
+        flex-direction: column;
+    }
+    
+    .import-actions button {
+        width: 100%;
+    }
+    
+    .control-group select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Upgrade & Repair Page Styles */
+.upgrade-repair-content {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.upgrade-repair-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.upgrade-repair-tabs .tab-btn {
+    background: #f8f9fa;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    flex: 1;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.upgrade-repair-tabs .tab-btn.active {
+    background: white;
+    border-bottom-color: #007bff;
+    color: #007bff;
+}
+
+.upgrade-repair-tabs .tab-btn:hover {
+    background: #e9ecef;
+}
+
+.upgrade-repair-tabs .tab-btn.active:hover {
+    background: white;
+}
+
+.assets-grid {
+    padding: 20px;
+}
+
+.asset-category {
+    margin-bottom: 30px;
+}
+
+.category-title {
+    color: #495057;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e9ecef;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.category-assets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.asset-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    border: 1px solid #e9ecef;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.asset-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.asset-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.asset-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.asset-status {
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.asset-info {
+    text-align: center;
+    color: #666;
+}
+
+.asset-info small {
+    font-size: 12px;
+}
+
+.no-assets {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-style: italic;
+}
+
+.no-assets p {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Asset Management in Admin Panel */
+.asset-management-section {
+    padding: 20px;
+}
+
+.info-text {
+    color: #666;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.asset-category-admin {
+    margin-bottom: 25px;
+}
+
+.asset-category-admin .category-title {
+    color: #495057;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e9ecef;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.asset-item {
+    background: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #007bff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.asset-item-info {
+    flex: 1;
+    min-width: 200px;
+}
+
+.asset-item-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.asset-item-category {
+    font-size: 14px;
+    color: #666;
+    margin-top: 2px;
+}
+
+.asset-item-status {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.current-status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    min-width: 70px;
+    text-align: center;
+}
+
+.current-status.repair {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.current-status.upgrade {
+    background: #cce5ff;
+    color: #004085;
+    border: 1px solid #99d6ff;
+}
+
+.current-status.available {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.asset-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.asset-actions select {
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.asset-actions button {
+    padding: 4px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-update-asset {
+    background: #28a745;
+    color: white;
+}
+
+.btn-update-asset:hover {
+    background: #218838;
+}
+
+.btn-clear-asset {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-clear-asset:hover {
+    background: #5a6268;
+}
+
+/* Responsive Design for Upgrade & Repair */
+@media (max-width: 768px) {
+    .upgrade-repair-tabs .tab-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .category-assets {
+        grid-template-columns: 1fr;
+    }
+    
+    .asset-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .asset-item-status {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .asset-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}

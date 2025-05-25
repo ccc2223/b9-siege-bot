@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BB99 Siege War - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BB99 Siege War - Admin Panel</h1>
+            <div class="header-controls">
+                <div id="authSection" class="auth-section">
+                    <!-- Auth content will be populated by JavaScript -->
+                </div>
+                <button onclick="window.close()" class="admin-btn">Close Panel</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="adminContent" class="admin-content-page">
+                <div class="admin-tabs">
+                    <button class="tab-btn active" data-tab="applications">Applications</button>
+                    <button class="tab-btn" data-tab="conditions">Edit Conditions</button>
+                    <button class="tab-btn" data-tab="importConditions">Import Conditions</button>
+                    <button class="tab-btn" data-tab="manageAssets">Manage Assets</button>
+                    <button class="tab-btn" data-tab="users">Users</button>
+                    <button class="tab-btn" data-tab="postManagement">Post Management</button>
+                </div>
+
+                <div id="applicationsTab" class="tab-content active">
+                    <h3>Pending Applications</h3>
+                    <div id="applicationsList">
+                        <!-- Applications will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div id="conditionsTab" class="tab-content">
+                    <h3>Edit Post Conditions</h3>
+                    <div class="post-selector">
+                        <label for="editPostSelect">Select Post:</label>
+                        <select id="editPostSelect">
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div id="conditionsForm">
+                        <!-- Form will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div id="importConditionsTab" class="tab-content">
+                    <h3>Import Post Conditions from Text</h3>
+                    <div class="import-conditions-section">
+                        <div class="format-help">
+                            <h4>Text Format:</h4>
+                            <pre class="format-example">Post 1
+only barbarian
+only force
+only epic
+
+Post 5
+only archer
+only magic
+only legendary</pre>
+                            <p class="format-note">• Each post starts with "Post [NUMBER]"<br>
+                            • Follow with exactly 3 conditions (one per line)<br>
+                            • Condition 4 will remain "None of the above/Unsure"<br>
+                            • You can import multiple posts at once</p>
+                        </div>
+                        
+                        <div class="import-input-section">
+                            <label for="conditionsImportText">Enter Conditions Text:</label>
+                            <textarea id="conditionsImportText" placeholder="Post 1&#10;only barbarian&#10;only force&#10;only epic&#10;&#10;Post 2&#10;only wizard&#10;only ice&#10;only rare" rows="15"></textarea>
+                            
+                            <div class="import-actions">
+                                <button id="previewImportBtn" class="btn-preview">Preview Changes</button>
+                                <button id="executeImportBtn" class="btn-import" disabled>Import Conditions</button>
+                                <button id="clearImportBtn" class="btn-clear">Clear Text</button>
+                            </div>
+                            
+                            <div id="importPreview" class="import-preview" style="display: none;">
+                                <h4>Preview of Changes:</h4>
+                                <div id="previewContent"></div>
+                            </div>
+                            
+                            <div id="importErrors" class="import-errors" style="display: none;">
+                                <h4>Import Errors:</h4>
+                                <div id="errorContent"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="manageAssetsTab" class="tab-content">
+                    <h3>Manage Assets</h3>
+                    <div class="asset-management-section">
+                        <p class="info-text">Set which assets should be displayed in the Upgrade & Repair page for users to see.</p>
+                        <div id="assetsList">
+                            <!-- Assets will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="usersTab" class="tab-content">
+                    <h3>Manage Users</h3>
+                    <div id="usersList">
+                        <!-- Users will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div id="postManagementTab" class="tab-content">
+                    <h3>Post Management</h3>
+                    <div class="post-management-controls">
+                        <div class="control-group">
+                            <label for="assignPostSelect">Assign User to Post:</label>
+                            <select id="assignPostSelect">
+                                <option value="">Select Post...</option>
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                            <select id="assignUserSelect">
+                                <option value="">Select User...</option>
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                            <button id="assignUserBtn" class="btn-assign">Assign User</button>
+                        </div>
+                        <div class="control-group">
+                            <label for="removePostSelect">Remove Holder from Post:</label>
+                            <select id="removePostSelect">
+                                <option value="">Select Post...</option>
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                            <button id="removeHolderBtn" class="btn-remove">Remove Holder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="accessDenied" class="access-denied" style="display: none;">
+                <h2>Access Denied</h2>
+                <p>You need admin privileges to access this panel.</p>
+                <button onclick="window.close()" class="btn-primary">Close</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="success-modal">
+        <div class="success-modal-content">
+            <h3>Import Successful!</h3>
+            <div id="successContent" class="changes-summary">
+                <!-- Success content will be populated by JavaScript -->
+            </div>
+            <div style="text-align: center;">
+                <button onclick="adminManager.hideSuccessModal()" class="btn-primary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

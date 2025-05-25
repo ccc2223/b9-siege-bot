@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BB99 Siege War</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BB99 Siege War</h1>
+            <div class="header-controls">
+                <div id="authSection" class="auth-section">
+                    <!-- Auth content will be populated by JavaScript -->
+                </div>
+                <!-- Discord Integration Section -->
+                <div id="discordSection" class="discord-section" style="display: none;">
+                    <div id="discordStatus" class="discord-status">
+                        <!-- Discord status will be populated by JavaScript -->
+                    </div>
+                </div>
+                <button id="upgradeRepairBtn" onclick="window.location.href='/upgrade-repair'" class="btn-secondary" style="display: none;">Upgrade & Repair</button>
+                <button id="adminBtn" class="admin-btn" style="display: none;">Admin Panel</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="authPrompt" class="auth-prompt">
+                <div class="auth-prompt-content">
+                    <h2>Welcome to BB99 Siege War</h2>
+                    <p>Please sign in to participate in the siege war and claim your posts!</p>
+                    <div class="auth-buttons">
+                        <button id="showLogin" class="btn-primary">Sign In</button>
+                        <button id="showSignup" class="btn-secondary">Create Account</button>
+                    </div>
+                    <div class="features-highlight">
+                        <h3>🤖 New: Discord Integration!</h3>
+                        <p>Link your Discord account to manage boxes directly from Discord using our bot commands!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="postsSection" class="posts-section" style="display: none;">
+                <!-- Discord Integration Info Banner -->
+                <div id="discordInfoBanner" class="info-banner" style="display: none;">
+                    <div class="banner-content">
+                        <div class="banner-icon">🤖</div>
+                        <div class="banner-text">
+                            <strong>Discord Bot Available!</strong>
+                            <p>Use <code>/link</code>, <code>/profile</code>, and <code>/boxes</code> commands in Discord to manage your boxes!</p>
+                        </div>
+                        <button id="closeBanner" class="close-banner">×</button>
+                    </div>
+                </div>
+                
+                <div id="posts-container" class="posts-grid">
+                    <!-- Posts will be populated by JavaScript -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Authentication Modal -->
+        <div id="authModal" class="modal">
+            <div class="modal-content">
+                <h2 id="authModalTitle">Sign In</h2>
+                <div id="authModalContent">
+                    <!-- Auth form will be populated by JavaScript -->
+                </div>
+                <div class="modal-buttons">
+                    <button id="confirmAuth">Continue</button>
+                    <button id="cancelAuth">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post Action Modal -->
+        <div id="postModal" class="modal">
+            <div class="modal-content">
+                <h2 id="postModalTitle">Post Actions</h2>
+                <div id="postModalContent">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+                <div class="modal-buttons">
+                    <button id="confirmPostAction">Confirm</button>
+                    <button id="cancelPostAction">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Discord Link Modal -->
+        <div id="discordModal" class="modal">
+            <div class="modal-content">
+                <h2>🤖 Discord Integration</h2>
+                <div id="discordModalContent">
+                    <div class="discord-info">
+                        <h3>Link Your Discord Account</h3>
+                        <p>Connect your Discord account to use our bot commands for managing boxes directly from Discord!</p>
+                        
+                        <div class="discord-features">
+                            <h4>Available Bot Commands:</h4>
+                            <ul>
+                                <li><code>/link</code> - Check your account linking status</li>
+                                <li><code>/profile</code> - View your profile and statistics</li>
+                                <li><code>/boxes view</code> - See your assigned boxes</li>
+                                <li><code>/boxes available</code> - View available boxes</li>
+                                <li><code>/boxes status</code> - Get overall statistics</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="discord-instructions">
+                            <h4>How to Link:</h4>
+                            <ol>
+                                <li>Click "Link Discord Account" below</li>
+                                <li>Authorize the connection on Discord</li>
+                                <li>Use bot commands in your Discord server</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button id="linkDiscordBtn" class="btn-discord">Link Discord Account</button>
+                    <button id="cancelDiscordLink">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Password Modal -->
+        <div id="adminPasswordModal" class="modal">
+            <div class="modal-content">
+                <h2>Admin Access</h2>
+                <input type="password" id="adminPassword" placeholder="Enter admin password">
+                <div class="modal-buttons">
+                    <button id="confirmAdminPassword">Login</button>
+                    <button id="cancelAdminPassword">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="adminPanel" class="admin-panel">
+            <div class="admin-content">
+                <div class="admin-header">
+                    <h2>Admin Panel</h2>
+                    <button id="closeAdmin">×</button>
+                </div>
+                
+                <div class="admin-tabs">
+                    <button class="tab-btn active" data-tab="applications">Applications</button>
+                    <button class="tab-btn" data-tab="conditions">Edit Conditions</button>
+                    <button class="tab-btn" data-tab="users">Users</button>
+                    <button class="tab-btn" data-tab="postManagement">Post Management</button>
+                    <button class="tab-btn" data-tab="discord">Discord</button>
+                </div>
+
+                <div id="applicationsTab" class="tab-content active">
+                    <h3>Pending Applications</h3>
+                    <div id="applicationsList">
+                        <!-- Applications will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div id="conditionsTab" class="tab-content">
+                    <h3>Edit Post Conditions</h3>
+                    <div class="post-selector">
+                        <label for="editPostSelect">Select Post:</label>
+                        <select id="editPostSelect">
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div id="conditionsForm">
+                        <!-- Form will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div id="usersTab" class="tab-content">
+                    <h3>Manage Users</h3>
+                    <div id="usersList">
+                        <!-- Users will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div id="postManagementTab" class="tab-content">
+                    <h3>Post Management</h3>
+                    <div class="post-management-controls">
+                        <div class="control-group">
+                            <label for="assignPostSelect">Assign User to Post:</label>
+                            <select id="assignPostSelect">
+                                <option value="">Select Post...</option>
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                            <select id="assignUserSelect">
+                                <option value="">Select User...</option>
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                            <button id="assignUserBtn" class="btn-assign">Assign User</button>
+                        </div>
+                        <div class="control-group">
+                            <label for="removePostSelect">Remove Holder from Post:</label>
+                            <select id="removePostSelect">
+                                <option value="">Select Post...</option>
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                            <button id="removeHolderBtn" class="btn-remove">Remove Holder</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="discordTab" class="tab-content">
+                    <h3>Discord Integration</h3>
+                    <div class="discord-admin-info">
+                        <div class="discord-stats">
+                            <h4>Discord Statistics</h4>
+                            <div id="discordStats">
+                                <!-- Discord stats will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="discord-setup">
+                            <h4>Bot Setup Instructions</h4>
+                            <ol>
+                                <li>Configure your .env file with Discord credentials</li>
+                                <li>Start the Discord bot: <code>npm run bot</code></li>
+                                <li>Invite the bot to your Discord server</li>
+                                <li>Users can link their accounts and use bot commands</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="discord-commands">
+                            <h4>Available Bot Commands</h4>
+                            <ul>
+                                <li><code>/link</code> - Check account linking status</li>
+                                <li><code>/profile</code> - View user profile and stats</li>
+                                <li><code>/boxes view</code> - View assigned boxes</li>
+                                <li><code>/boxes available</code> - View available boxes</li>
+                                <li><code>/boxes status</code> - Get server statistics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
