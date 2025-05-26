@@ -21,14 +21,22 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+// Trust proxy for Railway deployment
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+}
+
 // Session middleware
 app.use(session({
   secret: process.env.SESSION_SECRET || 'bb99-siege-war-secret-key',
   resave: false,
   saveUninitialized: false,
+  proxy: process.env.NODE_ENV === 'production',
   cookie: { 
-    secure: process.env.NODE_ENV === 'production',
-    maxAge: 365 * 24 * 60 * 60 * 1000 // 365 days
+    secure: process.env.NODE_ENV === 'production' && process.env.SECURE_COOKIES === 'true',
+    httpOnly: true,
+    maxAge: 365 * 24 * 60 * 60 * 1000, // 365 days
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
   }
 }));
 
