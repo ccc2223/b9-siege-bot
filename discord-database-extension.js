@@ -42,7 +42,7 @@ class DiscordDatabaseExtension {
   addDiscordColumnsToUsers(callback) {
     this.db.db.serialize(() => {
       const alterQueries = [
-        'ALTER TABLE users ADD COLUMN discord_user_id TEXT UNIQUE',
+        'ALTER TABLE users ADD COLUMN discord_user_id TEXT',
         'ALTER TABLE users ADD COLUMN discord_username TEXT',
         'ALTER TABLE users ADD COLUMN discord_avatar TEXT',
         'ALTER TABLE users ADD COLUMN discord_linked_at DATETIME'
@@ -59,7 +59,13 @@ class DiscordDatabaseExtension {
           completed++;
           if (completed === alterQueries.length) {
             console.log('Successfully added Discord columns to users table');
-            callback(null);
+            // Now create unique index for discord_user_id
+            this.db.db.run('CREATE UNIQUE INDEX IF NOT EXISTS idx_users_discord_user_id_unique ON users(discord_user_id) WHERE discord_user_id IS NOT NULL', (err) => {
+              if (err) {
+                console.warn('Warning: Could not create unique index for discord_user_id:', err.message);
+              }
+              callback(null);
+            });
           }
         });
       });
@@ -140,7 +146,6 @@ class DiscordDatabaseExtension {
 
   createIndexes(callback) {
     const indexes = [
-      'CREATE INDEX IF NOT EXISTS idx_users_discord_user_id ON users(discord_user_id)',
       'CREATE INDEX IF NOT EXISTS idx_discord_command_logs_discord_user_id ON discord_command_logs(discord_user_id)',
       'CREATE INDEX IF NOT EXISTS idx_discord_command_logs_command_name ON discord_command_logs(command_name)',
       'CREATE INDEX IF NOT EXISTS idx_discord_command_logs_executed_at ON discord_command_logs(executed_at)'

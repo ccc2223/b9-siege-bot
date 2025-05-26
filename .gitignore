@@ -16,6 +16,7 @@ yarn-error.log*
 *.sqlite
 *.sqlite3
 boxes_backup_*.db
+sessions.db
 
 # Logs
 *.log

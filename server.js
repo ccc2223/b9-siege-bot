@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const session = require('express-session');
+const SQLiteStore = require('connect-sqlite3')(session);
 const Database = require('./database');
 const DiscordDatabaseExtension = require('./discord-database-extension');
 const { setupDiscordAuth } = require('./discord-auth');
@@ -28,15 +29,19 @@ if (process.env.NODE_ENV === 'production') {
 
 // Session middleware
 app.use(session({
+  store: new SQLiteStore({
+    db: 'sessions.db',
+    dir: './'
+  }),
   secret: process.env.SESSION_SECRET || 'bb99-siege-war-secret-key',
   resave: false,
   saveUninitialized: false,
   proxy: process.env.NODE_ENV === 'production',
   cookie: { 
-    secure: process.env.NODE_ENV === 'production' && process.env.SECURE_COOKIES === 'true',
+    secure: false, // Set to false for Railway compatibility
     httpOnly: true,
     maxAge: 365 * 24 * 60 * 60 * 1000, // 365 days
-    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
+    sameSite: 'lax'
   }
 }));
 
