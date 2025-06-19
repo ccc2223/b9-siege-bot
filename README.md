@@ -87,19 +87,31 @@ https://forms.gle/BPCVucNsfffjhMAG9
 ## Screenshots
 
 
-| Boxes status command                 |
-| ------------------------------------ |
-| ![failed to load image](https://imgur.com/a/r7537OA) |
-| my boxes command                     |
-| ![[Pasted image 20250619103521.png]] |
-| All boxes command                    |
-| ![[Pasted image 20250619102803.png]] |
-| Admin panel post applications view   |
-| ![[Pasted image 20250619103035.png]] |
-| Admin panel import conditions view   |
-| ![[Pasted image 20250619103210.png]] |
-| Web app post overview                |
-| ![[Pasted image 20250619103627.png]] |
+Boxes status command                 
+![boxesstats](https://github.com/user-attachments/assets/018ac45b-3132-458e-b538-da9a0762f7ca)
+
+My boxes command    
+![myboxesview](https://github.com/user-attachments/assets/d9324602-dfad-4df2-bc71-838272e72b05)
+
+
+All boxes command                   
+![allboxesview](https://github.com/user-attachments/assets/19c2f5d8-a1f9-4665-b34d-f57fe585df6a)
+
+
+Admin panel post applications view   
+![adminpanelview1](https://github.com/user-attachments/assets/a1ecd59f-19a1-4fc9-b7e2-6840f4dba259)
+
+
+
+
+Admin panel import conditions view
+![adminpanelimport](https://github.com/user-attachments/assets/eda11e7e-f2f5-4c5d-9e48-f304a44252a6)
+
+
+Web app post overview               
+![mainview](https://github.com/user-attachments/assets/0179a5cb-ff02-4dd9-b070-ce5bc720ae15)
+
+
 
 
 
