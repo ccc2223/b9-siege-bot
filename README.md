@@ -44,6 +44,65 @@ A comprehensive web application with Discord bot integration for managing respon
 - Environment-based configuration
 - Input validation and sanitization
 
+## Quick Start
+
+### Prerequisites
+- Node.js 14+ 
+- Discord Application (Bot Token, Client ID, Client Secret)
+
+### Installation
+
+
+1. **Clone and install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Configure environment variables**:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your Discord credentials
+   ```
+
+3. **Start the application**:
+   ```bash
+   # Start web app and Discord bot together
+   npm run start-all
+   
+   # Or start separately
+   npm start          # Web app only
+   npm run bot        # Discord bot only
+   ```
+
+4. **Setup Discord Bot**:
+   - Create application at https://discord.com/developers/applications
+   - Add bot to your server with appropriate permissions
+   - Users can link accounts via the web application
+### Demo 
+
+Not in the mood to deploy the project yourself? Hit me up for access to a demo or custom deployment for your clan. 
+
+https://forms.gle/BPCVucNsfffjhMAG9
+
+## Screenshots
+
+
+| Boxes status command                 |
+| ------------------------------------ |
+| ![failed to load image](https://imgur.com/a/r7537OA) |
+| my boxes command                     |
+| ![[Pasted image 20250619103521.png]] |
+| All boxes command                    |
+| ![[Pasted image 20250619102803.png]] |
+| Admin panel post applications view   |
+| ![[Pasted image 20250619103035.png]] |
+| Admin panel import conditions view   |
+| ![[Pasted image 20250619103210.png]] |
+| Web app post overview                |
+| ![[Pasted image 20250619103627.png]] |
+
+
+
 ## License
 
 MIT License - See LICENSE file for details.
